@@ -3,42 +3,47 @@
 * MIT License
 */
 /* Border-box-sizing */
+@mixin box-sizing($value) {
+	-webkit-box-sizing: $value;
+	-moz-box-sizing: $value;
+	box-sizing: $value;
+}
 .block-group, .block {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box; }
-  .block-group:before, .block-group:after, .block:before, .block:after {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box; }
+  @include box-sizing(border-box);
+	&:before, &:after {
+		@include box-sizing(border-box);
+	}
+}
 
 /* Clearfix */
 .block-group {
-  *zoom: 1; }
-
+  *zoom: 1;
+}
 .block-group:before, .block-group:after {
   display: table;
   content: "";
-  line-height: 0; }
-
+  line-height: 0;
+}
 .block-group:after {
-  clear: both; }
+  clear: both;
+}
 
 .block-group {
   /* ul/li compatibility */
   list-style-type: none;
   padding: 0;
-  margin: 0; }
+  margin: 0;
+}
 
 /* Nested grid */
 .block-group > .block-group {
   clear: none;
   float: left;
-  margin: 0 !important; }
+  margin: 0 !important;
+}
 
 /* Default block */
 .block {
   float: left;
-  width: 100%; }
-
-/*# sourceMappingURL=pocketgrid.css.map */
+  width: 100%;
+}
